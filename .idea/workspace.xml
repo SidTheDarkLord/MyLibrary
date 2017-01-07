@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44edc4bf-49c4-457d-849e-9c2d16ef5cfe" name="Default" comment="Second commit&#10;need to fix css file">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/web/beans/Genre.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/web/beans/Genres.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/web/controllers/SearchController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/web/db/Database.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/web/enums/SearchType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/content.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/footer.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/header.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/left_menu.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/templates/library_tamplate.xhtml" />
+    <list default="true" id="44edc4bf-49c4-457d-849e-9c2d16ef5cfe" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/validators/LoginValidator.class" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/validators/LoginValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/validators/LoginValidator.class" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/validators/LoginValidator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/web/nls/messages.properties" afterPath="$PROJECT_DIR$/src/ru/web/nls/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/web/nls/messages_en_US.properties" afterPath="$PROJECT_DIR$/src/ru/web/nls/messages_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/web/nls/messages_ru_RU.properties" afterPath="$PROJECT_DIR$/src/ru/web/nls/messages_ru_RU.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/web/validators/LoginValidator.java" afterPath="$PROJECT_DIR$/src/ru/web/validators/LoginValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/books.xhtml" afterPath="$PROJECT_DIR$/web/pages/books.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_en_US.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_en_US.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_ru_RU.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_ru_RU.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/glassfish-web.xml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/glassfish-web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/pages/books.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/pages/books.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_en_US.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_en_US.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_ru_RU.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_ru_RU.properties" />
     </list>
     <ignored path="MyLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,8 +111,8 @@
       <file leaf-file-name="Genres.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/web/beans/Genres.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="380">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <marker date="1483785744928" expanded="true" signature="891:924" ph="select * fro... genre" />
               </folding>
@@ -324,7 +317,7 @@
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="XHTML File" />
   </component>
@@ -861,12 +854,20 @@
       <workItem from="1483535347213" duration="3891000" />
       <workItem from="1483616710436" duration="573000" />
       <workItem from="1483620973959" duration="2211000" />
-      <workItem from="1483779414495" duration="8976000" />
+      <workItem from="1483779414495" duration="9137000" />
     </task>
+    <task id="LOCAL-00001" summary="Second commit&#10;need to fix css file">
+      <created>1483789238507</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1483789238507</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30599000" />
+    <option name="totallyTimeSpent" value="30760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
@@ -874,14 +875,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1424,8 +1425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/web/beans/Genres.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="380">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <marker date="1483785744928" expanded="true" signature="891:924" ph="select * fro... genre" />
           </folding>
