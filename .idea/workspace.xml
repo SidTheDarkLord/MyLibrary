@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44edc4bf-49c4-457d-849e-9c2d16ef5cfe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/validators/LoginValidator.class" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/validators/LoginValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/validators/LoginValidator.class" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/validators/LoginValidator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_en_US.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_ru_RU.properties" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/classes/ru/web/nls/messages_ru_RU.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/glassfish-web.xml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/glassfish-web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/pages/books.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/MyLibrary_war_exploded/pages/books.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_en_US.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_ru_RU.properties" afterPath="$PROJECT_DIR$/out/production/MyLibrary/ru/web/nls/messages_ru_RU.properties" />
     </list>
     <ignored path="MyLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -284,28 +273,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLibrary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyLibrary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beans" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -854,7 +821,7 @@
       <workItem from="1483535347213" duration="3891000" />
       <workItem from="1483616710436" duration="573000" />
       <workItem from="1483620973959" duration="2211000" />
-      <workItem from="1483779414495" duration="9137000" />
+      <workItem from="1483779414495" duration="9328000" />
     </task>
     <task id="LOCAL-00001" summary="Second commit&#10;need to fix css file">
       <created>1483789238507</created>
@@ -863,11 +830,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483789238507</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second commit&#10;need to fix css file">
+      <created>1483789405984</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1483789405984</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30760000" />
+    <option name="totallyTimeSpent" value="30951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
