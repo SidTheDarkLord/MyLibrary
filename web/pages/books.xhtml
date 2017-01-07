@@ -8,8 +8,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Facelet Title</title>
+    <h:outputStylesheet library="CSS" name="style_main.css"/>
 </h:head>
 <h:body>
+
     <ui:composition template="/templates/library_tamplate.xhtml">
 
         <ui:define name="title">
@@ -17,9 +19,10 @@
         </ui:define>
 
         <ui:define name="content">
-            текстовый контент
+            #{param.genre_id}
         </ui:define>
 
     </ui:composition>
+
 </h:body>
 </html>
