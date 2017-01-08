@@ -1,5 +1,6 @@
-package ru.web.beans;
+package ru.web.controllers;
 
+import ru.web.beans.Genre;
 import ru.web.db.Database;
 
 import javax.faces.bean.ApplicationScoped;
@@ -11,21 +12,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-@ManagedBean
+@ManagedBean(eager = true)
 @ApplicationScoped
-public class Genres implements Serializable {
+public class GenreController implements Serializable {
 
-    public static boolean mark = false;
-    private ArrayList<Genre> genreList = new ArrayList<>();
-    private Connection conn;
-    private Statement stmt;
-    private ResultSet rs;
+    private ArrayList<Genre> genreList;
+
+    public GenreController() {
+        fillGenresAll();
+    }
 
     /*
     метод, возвращающий список жанров,
     заполненный информацией из базы данных
      */
-    private ArrayList<Genre> getGenres() {
+    private void fillGenresAll() {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        genreList = new ArrayList<>();
 
         try {
             Database database = new Database();
@@ -55,17 +60,11 @@ public class Genres implements Serializable {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
-        return genreList;
     }
 
     public ArrayList<Genre> getGenreList() {
-        if(genreList.isEmpty()) {
-            return getGenres();
-        } else {
             return genreList;
-        }
     }
 
 }

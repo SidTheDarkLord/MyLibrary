@@ -10,6 +10,7 @@
     <title>Facelet Title</title>
 </h:head>
 <h:body>
+
     <ui:composition template="/templates/library_tamplate.xhtml">
 
         <ui:define name="title">
@@ -17,9 +18,36 @@
         </ui:define>
 
         <ui:define name="content">
-            текстовый контент
+
+            <p><strong>#{msg.book_count} #{searchController.currentBookList.size()}</strong></p>
+
+            <h:dataTable value="#{searchController.currentBookList}" var="b" cellspacing="10px" columnClasses="col1, col2, col3">
+                <h:column>
+                    <h:graphicImage value="/ShowImage?id=#{b.id}" styleClass="book_image"/>
+                </h:column>
+
+                <h:column>
+                    <div>
+                        <p><a href="#">#{b.name}</a></p>
+                        <p><strong>#{msg.author_name}: </strong>#{b.author}</p>
+                        <p><strong>#{msg.publisher}: </strong>#{b.publisher}</p>
+                        <p><strong>#{msg.publish_year}: </strong>#{b.publishDate} г.</p>
+                        <p><strong>#{msg.pages_count}: </strong>#{b.pageCount}</p>
+                        <p><strong>ISBN: </strong>#{b.isbn}</p>
+                    </div>
+                </h:column>
+
+                <h:column>
+                    <div class="book_details">
+                        <p><strong>#{msg.descr}:</strong></p>
+                        <p>#{b.descr}</p>
+                    </div>
+                </h:column>
+            </h:dataTable>
+
         </ui:define>
 
     </ui:composition>
+
 </h:body>
 </html>

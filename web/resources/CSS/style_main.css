@@ -123,6 +123,11 @@ a:hover, a:focus, a:active {
     float: right;
 }
 
+.welcome a {
+    margin-right: 15px;
+    font-size: 10px;
+}
+
 .search_btn {
     background: #039aff;
     background-image: -webkit-linear-gradient(top, #039aff, #132c6b);
@@ -177,6 +182,30 @@ a:hover, a:focus, a:active {
     text-decoration: none;
 }
 
+.col1 {
+    vertical-align: top;
+}
+
+.col2 {
+    vertical-align: top;
+    width: 240px;
+}
+
+.col2 a {
+    font-weight: bold;
+    color: #378de5;
+    font-size: 15px;
+}
+
+.col2 p {
+    font-size: 12px;
+}
+
+.col3 {
+    vertical-align: top;
+    width: 350px;
+}
+
 .book_info {
     width: 210px;
     height: 450px;
@@ -194,18 +223,24 @@ a:hover, a:focus, a:active {
 .book_details {
     float: left;
     margin-top: 10px;
+    font-size: 15px;
 }
 
 .letters {
     float: left;
     height: 20px;
-    margin: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: #EEE;
+    padding: 15px;
 }
 
 .letters a {
     text-decoration: none;
     font-size: 15px;
     font-weight: bold;
+    margin: 5px;
+    color: #4d6cd3;
 }
 
 .search_string {

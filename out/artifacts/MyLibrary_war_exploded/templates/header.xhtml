@@ -21,18 +21,24 @@
         </div>
 
         <div class="welcome">
-            <h5>#{msg.welcome}</h5>
-            <h6>#{msg.exit}</h6>
+            <h5>#{msg.welcome}, #{user.username}!</h5>
+            <a href="../index.xhtml">#{msg.exit}</a>
         </div>
 
         <div class="search_div">
             <h:form styleClass="search_form">
                 <h:inputText id="search_string" styleClass="search_string"/>
-                <h:commandButton value="#{msg.search}" styleClass="search_button"/>
-                <h:selectOneMenu value="#{searchController.searchType}">
+                <h:commandButton value="#{msg.search}" styleClass="search_btn"/>
+                <h:selectOneMenu value="#{searchController.searchType}" styleClass="selector">
                     <f:selectItems value="${searchController.searchList}"/>
                 </h:selectOneMenu>
             </h:form>
+        </div>
+
+        <div class="letters">
+            <ui:repeat value="#{searchController.russianLetters}" var="letter">
+                <a href="#">#{letter}</a>
+            </ui:repeat>
         </div>
 
     </ui:composition>
