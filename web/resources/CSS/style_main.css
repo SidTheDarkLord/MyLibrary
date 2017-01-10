@@ -43,7 +43,7 @@ a:hover, a:focus, a:active {
 
 .header {
     background-color: #FFF;
-    height: 220px;
+    height: 280px;
 }
 
 .footer{
@@ -72,20 +72,21 @@ a:hover, a:focus, a:active {
     float: left;
 }
 
+
 .genres a:hover, a:focus, a:active {
     background-color: #FFF;
     color: #999;
 }
 
-.genres a:visited {
-    padding: 3px 3px 3px 15px;
+.genres a, a:visited {
+    padding: 15px 3px 3px 15px;
     display: block;
     text-decoration: none;
     color: #000;
 }
 
 .search_div {
-    margin: 20px;
+    margin: 0 15px 15px;
     text-align: left;
     background-color: #dbe4f6;
     height: 35px;
@@ -103,10 +104,10 @@ a:hover, a:focus, a:active {
 
 .logo {
     text-align: left;
-    padding: 20px;
+    padding: 15px;
     float: left;
-    width: 180px;
-    height: 179px;
+    width: 120px;
+    height: 119px;
 }
 
 .descr {

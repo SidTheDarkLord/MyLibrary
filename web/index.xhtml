@@ -26,7 +26,7 @@
                <!--f:validateLength minimum="3"/-->
                <f:validator validatorId="ru.web.validators.LoginValidator"/>
                </h:inputText>
-               <h:commandButton action="pages/books?faces-redirect=true" value="Войти"/>
+               <h:commandButton action="#{loginController.login()}" value="#{msg.enter}"/>
                <p><h:message for="username" styleClass="error"/></p>
             </h:form>
          </div>
