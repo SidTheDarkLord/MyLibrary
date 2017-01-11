@@ -19,21 +19,23 @@
 
         <ui:define name="content">
 
-            <p><strong>#{msg.book_count} #{searchController.currentBookList.size()}</strong></p>
-
             <h:dataTable value="#{searchController.currentBookList}" var="b" cellspacing="10px" columnClasses="col1, col2, col3">
                 <h:column>
-                    <h:graphicImage value="/ShowImage?id=#{b.id}" styleClass="book_image"/>
+                    <h:outputLink value="#{request.contextPath}/PdfContent?id=#{b.id}">
+                        <h:graphicImage value="/ShowImage?id=#{b.id}" styleClass="book_image"/>
+                    </h:outputLink>
                 </h:column>
 
                 <h:column>
                     <div>
-                        <p><a href="#">#{b.name}</a></p>
+                        <p><h:outputLink value="#{request.contextPath}/PdfContent?id=#{b.id}">#{b.name}</h:outputLink></p>
                         <p><strong>#{msg.author_name}: </strong>#{b.author}</p>
                         <p><strong>#{msg.publisher}: </strong>#{b.publisher}</p>
                         <p><strong>#{msg.publish_year}: </strong>#{b.publishDate} г.</p>
                         <p><strong>#{msg.pages_count}: </strong>#{b.pageCount}</p>
                         <p><strong>ISBN: </strong>#{b.isbn}</p>
+                        <p><h:graphicImage library="images" name="read.png" styleClass="read_image"/>
+                            <h:outputLink value="#{request.contextPath}/PdfContent?id=#{b.id}" styleClass="content_link">#{msg.read}</h:outputLink></p>
                     </div>
                 </h:column>
 
@@ -44,13 +46,18 @@
                     </div>
                 </h:column>
             </h:dataTable>
+        </ui:define>
 
-            <div class="pager">
-                <h:form>
-                    #{msg.pager}:
-                </h:form>
-            </div>
-
+        <ui:define name="paginator">
+            <h:form rendered="#{searchController.totalBooksCount > searchController.booksOnPage}">
+                #{msg.pager}:
+                <ui:repeat value="#{searchController.pageNumbers}" var="pageNumber">
+                    <h:commandLink value="#{pageNumber}" action="#{searchController.selectPage()}"
+                                   styleClass="#{pageNumber == searchController.selectedPageNumber ? 'selected_page':''}">
+                        <f:param name="page_number" value="#{pageNumber}"/>
+                    </h:commandLink>
+                </ui:repeat>
+            </h:form>
         </ui:define>
 
     </ui:composition>

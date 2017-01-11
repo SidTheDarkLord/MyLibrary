@@ -1,13 +1,7 @@
 package ru.web.beans;
 
-import ru.web.db.Database;
 
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
 
 public class Book implements Serializable {
 
@@ -112,41 +106,4 @@ public class Book implements Serializable {
         this.descr = descr;
     }
 
-    /*
-    метод, при вызове которого книга заполняется контентом
-    чтобы не заполнять каждый раз при создании экземпляра книги
-    */
-    public void fillPdfContent() {
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            Database database = new Database();
-            conn = database.getConnection();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT content FROM book WHERE id=" + this.getId());
-
-            while (rs.next()) {
-                this.setContent(rs.getBytes("content"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(rs != null) {
-                    rs.close();
-                }
-                if(stmt != null) {
-                    stmt.close();
-                }
-                if(conn != null) {
-                    conn.close();
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

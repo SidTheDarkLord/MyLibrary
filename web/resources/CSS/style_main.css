@@ -13,6 +13,7 @@ ul, ol, dl {
 
 h1, h2, h3, h4, h5, h6, p {
     margin-top: 0;
+    margin-bottom: 5px;
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -83,6 +84,10 @@ a:hover, a:focus, a:active {
     display: block;
     text-decoration: none;
     color: #000;
+}
+
+.genres a.selected_link {
+    color: red;
 }
 
 .search_div {
@@ -198,6 +203,10 @@ a:hover, a:focus, a:active {
     font-size: 15px;
 }
 
+.col2 a.content_link {
+    margin-left: 8px;
+}
+
 .col2 p {
     font-size: 12px;
 }
@@ -227,6 +236,10 @@ a:hover, a:focus, a:active {
     font-size: 15px;
 }
 
+.read_image {
+    float: left;
+}
+
 .letters {
     float: left;
     height: 20px;
@@ -244,6 +257,10 @@ a:hover, a:focus, a:active {
     color: #4d6cd3;
 }
 
+.letters a.selected_letter {
+    color: red;
+}
+
 .search_string {
     width: 730px;
     float: left;
@@ -254,3 +271,19 @@ a:hover, a:focus, a:active {
 .selector {
     margin: 9px 2px;
 }
+
+.pager {
+    margin: 15px;
+    width: 100%;
+    float: left;
+}
+
+.pager a {
+    margin-left: 5px;
+    margin-top: 50px;
+}
+
+.pager a.selected_page {
+    color: red;
+}
+

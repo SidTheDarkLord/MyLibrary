@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 
+@WebServlet(name = "PdfContent", urlPatterns = {"/PdfContent"})
+public class PdfContent extends HttpServlet {
 
-@WebServlet(name = "ShowImage", urlPatterns = {"/ShowImage"})
-public class ShowImage extends HttpServlet {
-
-    public void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("image/jpeg");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/pdf");
         try(OutputStream out = response.getOutputStream()) {
             int id = Integer.valueOf(request.getParameter("id"));
             SearchController searchController = (SearchController) request.getSession(false).getAttribute("searchController");
-            byte[] image = searchController.getImage(id);
-            response.setContentLength(image.length);
-            out.write(image);
+            byte[] content = searchController.getContent(id);
+            response.setContentLength(content.length);
+            out.write(content);
         }
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
