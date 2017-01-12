@@ -28,9 +28,12 @@
         </div>
 
         <div class="search_div">
-            <h:form styleClass="search_form">
+            <h:form id="searchForm" styleClass="search_form">
                 <h:inputText id="search_string" styleClass="search_string" value="#{searchController.searchString}"/>
-                <h:commandButton value="#{msg.search}" styleClass="search_btn" action="#{searchController.fillBooksBySearch()}"/>
+                <h:commandButton value="#{msg.search}" styleClass="search_btn">
+                    <f:ajax onevent="showProgress" execute="@form" render=":bookList @form :genresForm :lettersForm :pages1 :pages2 :booksCount"
+                            listener="#{searchController.fillBooksBySearch()}"/>
+                </h:commandButton>
                 <h:selectOneMenu value="#{searchController.searchType}" styleClass="selector">
                     <f:selectItems value="${searchController.searchList}"/>
                 </h:selectOneMenu>
@@ -38,11 +41,12 @@
         </div>
 
         <div class="letters">
-            <h:form>
+            <h:form id="lettersForm">
                 <ui:repeat value="#{searchController.russianLetters}" var="letter">
-                    <h:commandLink action="#{searchController.fillBooksByLetter()}" value="#{letter}"
-                                   styleClass="#{letter == searchController.selectedLetter ? 'selected_letter':''}">
+                    <h:commandLink value="#{letter}" styleClass="#{letter == searchController.selectedLetter ? 'selected_letter':''}">
                         <f:param name="letter" value="#{letter}"/>
+                        <f:ajax onevent="showProgress" event="click" render=":bookList @form :genresForm :searchForm :pages1 :pages2 :booksCount"
+                                listener="#{searchController.fillBooksByLetter()}"/>
                     </h:commandLink>
                 </ui:repeat>
             </h:form>

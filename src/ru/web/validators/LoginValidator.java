@@ -18,11 +18,11 @@ public class LoginValidator implements Validator {
                 FacesContext.getCurrentInstance().getViewRoot().getLocale());
         try {
             String newValue = o.toString();
-            if(newValue.length() < 3) {
-                throw new IllegalArgumentException(bundle.getString("login_length_error"));
-            }
             if(!Character.isLetter(newValue.charAt(0))) {
                 throw new IllegalArgumentException(bundle.getString("first_letter_error"));
+            }
+            if(newValue.length() < 3) {
+                throw new IllegalArgumentException(bundle.getString("login_length_error"));
             }
             if(getUsedNames().contains(newValue)) {
                 throw new IllegalArgumentException(bundle.getString("used_name"));
