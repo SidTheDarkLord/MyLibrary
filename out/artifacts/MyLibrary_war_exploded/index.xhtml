@@ -4,31 +4,57 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view locale="#{localeChanger.currentLocale}">
    <h:head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <title>#{msg.welcome_title}</title>
       <h:outputStylesheet library="CSS" name="style_index.css"/>
+      <h:outputScript library="js" name="library.js" target="head"/>
    </h:head>
    <h:body>
 
+      <noscript>
+         <h4>Включите JavaScript в вашем браузере для работы приложения</h4>
+      </noscript>
+
       <div class="main">
 
+         <ui:include src="templates/locales.xhtml"/>
+
          <div class="content">
-            <p class="title"><h:graphicImage library="images" name="books.jpg"/></p>
+            <p class="title" style="margin-top: 80px;"><h:graphicImage library="images" name="books.jpg"/></p>
             <p class="title">#{msg.index_title}</p>
          </div>
 
          <div class="login_div">
-            <p class="title">#{msg.input_info}</p>
+
             <h:form styleClass="login_form">
-               #{msg.input_name} <h:inputText id="username" value="#{user.username}" required="true"
-                                              requiredMessage="#{msg.login_required}">
-               <!--f:validateLength minimum="3"/-->
-               <f:validator validatorId="ru.web.validators.LoginValidator"/>
-               </h:inputText>
-               <h:commandButton action="#{loginController.login()}" value="#{msg.enter}"/>
-               <p><h:message for="username" styleClass="error"/></p>
+               <table align="left" width="350" style="margin-top: 30px;">
+                  <tr>
+                     <td align="left">
+                        <span style="color: red;">*</span>#{msg.input_name}
+                     </td>
+                     <td>
+                        <h:inputText id="username" value="#{user.username}" required="true" requiredMessage="#{msg.login_required}"
+                                     style="width: 230px;">
+                           <!--f:validateLength minimum="3"/-->
+                           <f:validator validatorId="ru.web.validators.LoginValidator"/>
+                           <f:ajax event="keyup" render="loginError"/>
+                        </h:inputText>
+                     </td>
+                     <td>
+                        <h:commandButton action="#{loginController.login()}" value="#{msg.enter}"
+                                         styleClass="login_btn" onclick="return checkValue(this.form, '#{msg.login_required}');"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="3">
+                        <p><h:message id="loginError" for="username" styleClass="error"/></p>
+                     </td>
+                  </tr>
+               </table>
             </h:form>
+
          </div>
 
          <div class="footer">
@@ -38,4 +64,5 @@
       </div>
 
    </h:body>
+</f:view>
 </html>

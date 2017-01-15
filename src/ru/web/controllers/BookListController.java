@@ -8,6 +8,7 @@ import ru.web.enums.SearchType;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 @ManagedBean(eager = true)
 @SessionScoped
-public class SearchController implements Serializable {
+public class BookListController implements Serializable {
 
     private int booksOnPage = 2;  //кол-во книг на странице
     private int selectedGenreId;
@@ -31,17 +32,11 @@ public class SearchController implements Serializable {
     private ArrayList<Integer> pageNumbers = new ArrayList<>();  //список из номеров страниц
     private SearchType searchType;  //хранит выбранный тип поиска
     private String searchString;  //хранит строку поиска
-    private static Map<String, SearchType> searchList = new HashMap<>();
     private ArrayList<Book> currentBookList;  //текущий список книг для отображения
     private String currentSql;  //последний выполненный sql запрос без добавления limit
 
-    public SearchController() {
+    public BookListController() {
         fillBooksAll();
-
-        ResourceBundle bundle = ResourceBundle.getBundle("ru.web.nls.messages",
-                FacesContext.getCurrentInstance().getViewRoot().getLocale());
-        searchList.put(bundle.getString("author_name"), SearchType.AUTHOR);
-        searchList.put(bundle.getString("book_name"), SearchType.TYTLE);
     }
 
     private void fillBooksBySQL (String sql) {
@@ -124,7 +119,7 @@ public class SearchController implements Serializable {
 
     public String fillBooksByGenre() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        imitateLoading();
+
         submitValues(' ', Integer.valueOf(params.get("genre_id")), 1, false);
 
         fillBooksBySQL("SELECT b.id, b.name, b.page_count, b.isbn, g.name as genre, a.fio as author, b.publish_year, " +
@@ -140,7 +135,6 @@ public class SearchController implements Serializable {
 
     public String fillBooksBySearch() {
 
-        imitateLoading();
         submitValues(' ', -1, 1, false);
 
         if(searchString.trim().length() == 0) {
@@ -167,7 +161,7 @@ public class SearchController implements Serializable {
 
     public String  fillBooksByLetter() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        imitateLoading();
+
         submitValues(params.get("letter").charAt(0), -1, 1, false);
 
         fillBooksBySQL("SELECT b.id, b.name, b.page_count, b.isbn, g.name as genre, a.fio as author, b.publish_year, " +
@@ -231,7 +225,7 @@ public class SearchController implements Serializable {
 
     public String selectPage() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        imitateLoading();
+
         selectedPageNumber = Integer.valueOf(params.get("page_number"));
         requestFromPager = true;
         fillBooksBySQL(currentSql);
@@ -275,12 +269,12 @@ public class SearchController implements Serializable {
         return content;
     }
 
-    public void imitateLoading() {
-        try {
-            Thread.sleep(1000); //имитация загрузки
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void searchTypeChanged(ValueChangeEvent e) {
+        searchType = (SearchType) e.getNewValue();
+    }
+
+    public void searchStringChanged(ValueChangeEvent e) {
+        searchString = e.getNewValue().toString();
     }
 
     public ArrayList<Integer> getPageNumbers() {
@@ -313,10 +307,6 @@ public class SearchController implements Serializable {
 
     public void setSearchType(SearchType searchType) {
         this.searchType = searchType;
-    }
-
-    public Map<String, SearchType> getSearchList() {
-        return searchList;
     }
 
     public ArrayList<Book> getCurrentBookList() {

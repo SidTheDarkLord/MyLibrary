@@ -21,28 +21,40 @@
         </div>
 
         <div class="welcome">
+
+            <ui:include src="locales.xhtml"/>
+            <h5>#{msg.welcome}, #{user.username}!</h5>
+
             <h:form>
-                <h5>#{msg.welcome}, #{user.username}!</h5>
                 <h:commandLink action="#{loginController.exit()}" value="#{msg.exit}"/>
             </h:form>
         </div>
 
         <div class="search_div">
             <h:form styleClass="search_form">
-                <h:inputText id="search_string" styleClass="search_string" value="#{searchController.searchString}"/>
-                <h:commandButton value="#{msg.search}" styleClass="search_btn" action="#{searchController.fillBooksBySearch()}"/>
-                <h:selectOneMenu value="#{searchController.searchType}" styleClass="selector">
-                    <f:selectItems value="${searchController.searchList}"/>
+                <h:inputText id="search_string" styleClass="search_string" value="#{bookListController.searchString}"
+                             valueChangeListener="#{bookListController.searchStringChanged}">
+                    <f:ajax event="change"/>
+                </h:inputText>
+                <h:commandButton value="#{msg.search}" styleClass="search_btn">
+                    <f:ajax onevent="showProgress" execute="@form" render=":bookList :genresForm :lettersForm :pages1 :pages2 :booksCount"
+                            listener="#{bookListController.fillBooksBySearch()}"/>
+                </h:commandButton>
+                <h:selectOneMenu value="#{bookListController.searchType}" styleClass="selector"
+                                 valueChangeListener="#{bookListController.searchTypeChanged}">
+                    <f:selectItems value="${searchTypeController.searchList}"/>
+                    <f:ajax event="change"/>
                 </h:selectOneMenu>
             </h:form>
         </div>
 
         <div class="letters">
-            <h:form>
-                <ui:repeat value="#{searchController.russianLetters}" var="letter">
-                    <h:commandLink action="#{searchController.fillBooksByLetter()}" value="#{letter}"
-                                   styleClass="#{letter == searchController.selectedLetter ? 'selected_letter':''}">
+            <h:form id="lettersForm">
+                <ui:repeat value="#{bookListController.russianLetters}" var="letter">
+                    <h:commandLink value="#{letter}" styleClass="#{letter == bookListController.selectedLetter ? 'selected_letter':''}">
                         <f:param name="letter" value="#{letter}"/>
+                        <f:ajax onevent="showProgress" event="click" render=":bookList @form :genresForm :pages1 :pages2 :booksCount"
+                                listener="#{bookListController.fillBooksByLetter()}"/>
                     </h:commandLink>
                 </ui:repeat>
             </h:form>

@@ -42,12 +42,19 @@ body{
     clear: both;
 }
 .content{
-    height: 300px;
+    height: 250px;
 }
 .error{
     color: #ff0000;
     font-style: italic;
     font-size: 12px;
+}
+.locales{
+    margin: 5px;
+    float: right;
+}
+.locales a{
+    margin-right: 15px;
 }
 .login_btn{text-decoration:none; text-align:center;
     padding:3px 7px;

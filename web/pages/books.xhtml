@@ -18,12 +18,12 @@
         </ui:define>
 
         <ui:define name="books_count">
-            <h:outputText value="#{msg.book_count} #{searchController.totalBooksCount}" id="booksCount"/>
+            <h:outputText value="#{msg.book_count} #{bookListController.totalBooksCount}" id="booksCount"/>
         </ui:define>
 
         <ui:define name="content">
 
-            <h:dataTable id="bookList" value="#{searchController.currentBookList}" var="b" cellspacing="10px" columnClasses="col1, col2, col3">
+            <h:dataTable id="bookList" value="#{bookListController.currentBookList}" var="b" cellspacing="10px" columnClasses="col1, col2, col3">
                 <h:column>
                     <h:outputLink value="#{request.contextPath}/PdfContent?id=#{b.id}">
                         <h:graphicImage value="/ShowImage?id=#{b.id}" styleClass="book_image"/>
@@ -38,8 +38,22 @@
                         <p><strong>#{msg.publish_year}: </strong>#{b.publishDate} г.</p>
                         <p><strong>#{msg.pages_count}: </strong>#{b.pageCount}</p>
                         <p><strong>ISBN: </strong>#{b.isbn}</p>
-                        <p style="margin: 10px 0;"><h:graphicImage library="images" name="read.png" styleClass="read_image"/>
-                            <h:outputLink value="#{request.contextPath}/PdfContent?id=#{b.id}" styleClass="content_link">#{msg.read}</h:outputLink></p>
+                        <p style="margin: 10px 0;">
+                            <h:graphicImage library="images" name="read.png" styleClass="read_image"/>
+                            <h:outputLink value="#{request.contextPath}/PdfContent" styleClass="content_link">
+                                <h:outputText value="#{msg.read}"></h:outputText>
+                                <f:param name="id" value="#{b.id}"/>
+                            </h:outputLink>
+                        </p>
+                        <p style="margin: 10px 0;">
+                            <h:graphicImage library="images" name="floppy.png" styleClass="read_image"/>
+                            <h:outputLink value="#{request.contextPath}/PdfContent" target="_blank" styleClass="content_link">
+                                <h:outputText value="#{msg.download}"></h:outputText>
+                                <f:param name="id" value="#{b.id}"/>
+                                <f:param name="save" value="true"/>
+                                <f:param name="filename" value="#{b.name}"/>
+                            </h:outputLink>
+                        </p>
                     </div>
                 </h:column>
 
@@ -53,13 +67,13 @@
         </ui:define>
 
         <ui:define name="paginator">
-            <h:form rendered="#{searchController.totalBooksCount > searchController.booksOnPage}">
+            <h:form rendered="#{bookListController.totalBooksCount > bookListController.booksOnPage}">
                 #{msg.pager}:
-                <ui:repeat value="#{searchController.pageNumbers}" var="pageNumber">
-                    <h:commandLink value="#{pageNumber}" styleClass="#{pageNumber == searchController.selectedPageNumber ? 'selected_page':''}">
+                <ui:repeat value="#{bookListController.pageNumbers}" var="pageNumber">
+                    <h:commandLink value="#{pageNumber}" styleClass="#{pageNumber == bookListController.selectedPageNumber ? 'selected_page':''}">
                         <f:param name="page_number" value="#{pageNumber}"/>
-                        <f:ajax onevent="showProgress" event="click" render=":bookList :lettersForm :genresForm :searchForm :pages1 :pages2 :booksCount"
-                                listener="#{searchController.selectPage()}"/>
+                        <f:ajax onevent="showProgress" event="click" render=":bookList :lettersForm :genresForm :pages1 :pages2 :booksCount"
+                                listener="#{bookListController.selectPage()}"/>
                     </h:commandLink>
                 </ui:repeat>
             </h:form>

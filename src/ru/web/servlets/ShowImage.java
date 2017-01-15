@@ -1,6 +1,6 @@
 package ru.web.servlets;
 
-import ru.web.controllers.SearchController;
+import ru.web.controllers.BookListController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +18,8 @@ public class ShowImage extends HttpServlet {
         response.setContentType("image/jpeg");
         try(OutputStream out = response.getOutputStream()) {
             int id = Integer.valueOf(request.getParameter("id"));
-            SearchController searchController = (SearchController) request.getSession(false).getAttribute("searchController");
-            byte[] image = searchController.getImage(id);
+            BookListController bookListController = (BookListController) request.getSession(false).getAttribute("bookListController");
+            byte[] image = bookListController.getImage(id);
             response.setContentLength(image.length);
             out.write(image);
         }

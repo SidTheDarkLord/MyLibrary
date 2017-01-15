@@ -6,8 +6,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="#{localeChanger.currentLocale}">
 <h:head>
     <title><ui:insert name="title"/></title>
     <h:outputStylesheet library="CSS" name="style_main.css"/>
@@ -67,5 +67,5 @@
 
     </div>
 </h:body>
-
+</f:view>
 </html>
