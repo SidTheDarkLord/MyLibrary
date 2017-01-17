@@ -37,7 +37,7 @@
                     <f:ajax event="change"/>
                 </h:inputText>
                 <h:commandButton value="#{msg.search}" styleClass="search_btn">
-                    <f:ajax onevent="showProgress" execute="@form" render=":bookList :genresForm :lettersForm :pages1 :pages2 :booksCount"
+                    <f:ajax onevent="showProgress" execute="@form" render=":booksForm:bookList :genresForm :lettersForm :pages1 :pages2 :booksCount"
                             listener="#{bookListController.fillBooksBySearch()}"/>
                 </h:commandButton>
                 <h:selectOneMenu value="#{bookListController.searchType}" styleClass="selector"
@@ -53,7 +53,7 @@
                 <ui:repeat value="#{bookListController.russianLetters}" var="letter">
                     <h:commandLink value="#{letter}" styleClass="#{letter == bookListController.selectedLetter ? 'selected_letter':''}">
                         <f:param name="letter" value="#{letter}"/>
-                        <f:ajax onevent="showProgress" event="click" render=":bookList @form :genresForm :pages1 :pages2 :booksCount"
+                        <f:ajax onevent="showProgress" event="click" render=":booksForm:bookList @form :genresForm :pages1 :pages2 :booksCount"
                                 listener="#{bookListController.fillBooksByLetter()}"/>
                     </h:commandLink>
                 </ui:repeat>

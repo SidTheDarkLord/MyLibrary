@@ -10,10 +10,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -275,6 +272,67 @@ public class BookListController implements Serializable {
 
     public void searchStringChanged(ValueChangeEvent e) {
         searchString = e.getNewValue().toString();
+    }
+
+    public String updateBooks() {
+        PreparedStatement prepStmt = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        try {
+            Database database = new Database();
+            conn = database.getConnection();
+            prepStmt = conn.prepareStatement("UPDATE book SET name=?, isbn=?, page_count=?, publish_year=?, descr=? WHERE id=?");
+
+            for (Book book : currentBookList) {
+                if(!book.isEdit()) continue;
+                prepStmt.setString(1, book.getName());
+                prepStmt.setString(2, book.getIsbn());
+                //prepStmt.setString(3, book.getAuthor());
+                prepStmt.setInt(3, book.getPageCount());
+                prepStmt.setInt(4, book.getPublishDate());
+                //prepStmt.setString(5, book.getPublisher());
+                prepStmt.setString(5, book.getDescr());
+                prepStmt.setLong(6, book.getId());
+                prepStmt.addBatch();
+            }
+            prepStmt.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (prepStmt != null) {
+                    prepStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        switchEditMode();
+        return "books";
+    }
+
+    private boolean editMode;
+
+    public boolean isEditMode() {
+        return editMode;
+    }
+
+    public void switchEditMode() {
+        editMode = !editMode;
+    }
+
+    public void cancelEdit() {
+        editMode = false;
+        for (Book book : currentBookList) {
+            book.setEdit(false);
+        }
     }
 
     public ArrayList<Integer> getPageNumbers() {
