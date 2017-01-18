@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 @SessionScoped
 public class BookListController implements Serializable {
 
-    private int booksOnPage = 2;  //кол-во книг на странице
+    private int booksOnPage = 5;  //кол-во книг на странице
     private int selectedGenreId;
     private char selectedLetter;
     private long selectedPageNumber = 1;
@@ -221,6 +221,7 @@ public class BookListController implements Serializable {
     }
 
     public String selectPage() {
+        cancelEdit();
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
         selectedPageNumber = Integer.valueOf(params.get("page_number"));
@@ -272,6 +273,14 @@ public class BookListController implements Serializable {
 
     public void searchStringChanged(ValueChangeEvent e) {
         searchString = e.getNewValue().toString();
+    }
+
+    public void booksOnPageChanged(ValueChangeEvent e) {
+        cancelEdit();
+        requestFromPager = false;
+        booksOnPage = Integer.valueOf(e.getNewValue().toString()).intValue();
+        selectedPageNumber = 1;
+        fillBooksBySQL(currentSql);
     }
 
     public String updateBooks() {
@@ -355,6 +364,10 @@ public class BookListController implements Serializable {
         return booksOnPage;
     }
 
+    public void setBooksOnPage(int booksOnPage) {
+        this.booksOnPage = booksOnPage;
+    }
+
     public long getTotalBooksCount() {
         return totalBooksCount;
     }
@@ -378,4 +391,5 @@ public class BookListController implements Serializable {
     public void setSearchString(String searchString) {
         this.searchString = searchString;
     }
+
 }

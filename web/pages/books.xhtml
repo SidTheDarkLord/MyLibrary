@@ -137,7 +137,18 @@
         </ui:define>
 
         <ui:define name="paginator">
+
             <h:form rendered="#{bookListController.totalBooksCount > bookListController.booksOnPage}">
+                <h:panelGroup styleClass="books_on_page_dropdown">
+                    #{msg.books_on_page}:
+                    <h:selectOneMenu value="#{bookListController.booksOnPage}" valueChangeListener="#{bookListController.booksOnPageChanged}">
+                        <f:selectItem itemValue="5"/>
+                        <f:selectItem itemValue="10"/>
+                        <f:selectItem itemValue="20"/>
+                        <f:ajax event="change" execute="@form" onevent="showProgress" render=":booksForm:bookList :booksForm: :lettersForm :genresForm :pages1 :pages2"/>
+                    </h:selectOneMenu>
+                </h:panelGroup>
+
                 #{msg.pager}:
                 <ui:repeat value="#{bookListController.pageNumbers}" var="pageNumber">
                     <h:commandLink value="#{pageNumber}" styleClass="#{pageNumber == bookListController.selectedPageNumber ? 'selected_page':''}">

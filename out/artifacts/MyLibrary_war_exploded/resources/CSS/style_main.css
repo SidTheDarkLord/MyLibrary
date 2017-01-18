@@ -270,5 +270,8 @@ a:hover, a:focus, a:active {
 .save_btn{
     margin: 0 15px;
 }
+.books_on_page_dropdown{
+    float: right;
+}
 
 
