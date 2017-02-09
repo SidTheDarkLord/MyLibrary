@@ -19,7 +19,7 @@ public class SearchTypeController {
         ResourceBundle bundle = ResourceBundle.getBundle("ru.web.nls.messages", FacesContext.getCurrentInstance().getViewRoot().getLocale());
         searchList.clear();
         searchList.put(bundle.getString("author_name"), SearchType.AUTHOR);
-        searchList.put(bundle.getString("book_name"), SearchType.TYTLE);
+        searchList.put(bundle.getString("book_name"), SearchType.TITLE);
     }
 
     public Map<String, SearchType> getSearchList() {

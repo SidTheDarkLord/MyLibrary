@@ -23,39 +23,62 @@
 
          <div class="content">
             <p class="title" style="margin-top: 80px;"><h:graphicImage library="images" name="books.jpg"/></p>
-            <p class="title">#{msg.index_title}</p>
+            <p class="title"><h:outputText id="lib_title" value="#{msg.index_title}"/></p>
          </div>
 
-         <div class="login_div">
+         <h:panelGroup styleClass="login_div" id="login_div" layout="block">
 
-            <h:form styleClass="login_form">
-               <table align="left" width="350" style="margin-top: 30px;">
+            <h:form styleClass="login_form" id="login_form">
+               <table align="left" width="380" style="margin-top: 20px;">
                   <tr>
                      <td align="left">
-                        <span style="color: red;">*</span>#{msg.input_name}
+                        <span style="color: red;">*</span>#{msg.input_login}:
                      </td>
                      <td>
                         <h:inputText id="username" value="#{user.username}" required="true" requiredMessage="#{msg.login_required}"
-                                     style="width: 230px;">
+                                     style="width: 170px;">
                            <!--f:validateLength minimum="3"/-->
-                           <f:validator validatorId="ru.web.validators.LoginValidator"/>
-                           <f:ajax event="keyup" render="loginError"/>
+                           <!--f:validator validatorId="ru.web.validators.LoginValidator"/-->
+                           <!--f:ajax event="keyup" render="loginError"/-->
                         </h:inputText>
                      </td>
-                     <td>
-                        <h:commandButton action="#{loginController.login()}" value="#{msg.enter}"
-                                         styleClass="login_btn" onclick="return checkValue(this.form, '#{msg.login_required}');"/>
+                     <td width="20">
+                        <div id="loading_wrapper">
+                           <h:graphicImage library="images" name="splash.gif"/>
+                        </div>
                      </td>
                   </tr>
                   <tr>
-                     <td colspan="3">
-                        <p><h:message id="loginError" for="username" styleClass="error"/></p>
+                     <td align="left">
+                        <span style="color: red;">*</span>#{msg.input_password}:
+                     </td>
+                     <td>
+                        <h:inputSecret id="password" value="#{user.password}" required="true" requiredMessage="#{msg.password_required}"
+                                     redisplay="true" style="width: 170px;">
+                           <!--f:validateLength minimum="3"/-->
+                           <!--f:validator validatorId="ru.web.validators.LoginValidator"/-->
+                           <!--f:ajax event="keyup" render="loginError"/-->
+                        </h:inputSecret>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="center" style="height: 40px">
+                        <h:commandButton action="#{user.login()}" value="#{msg.entry}"
+                                         styleClass="login_btn" onclick="return checkValue(this.form, '#{msg.login_required}');">
+                           <f:ajax onevent="showProgress" execute="@form" render="@form"/>
+                        </h:commandButton>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="center">
+                        <h:message id="loginError" for="login_form" styleClass="error"/>
+                        <h:message id="username_input" for="username" styleClass="error"/>
                      </td>
                   </tr>
                </table>
             </h:form>
 
-         </div>
+         </h:panelGroup>
 
          <div class="footer">
             #{msg.author_info}

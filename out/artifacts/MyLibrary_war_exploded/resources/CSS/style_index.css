@@ -33,6 +33,7 @@ body{
     margin: 0 auto;
     padding: 10px;
     height: 150px;
+    font-weight: bold;
 }
 .footer{
     color: #cccccc;
@@ -56,6 +57,11 @@ body{
 .locales a{
     margin-right: 15px;
 }
+#loading_wrapper{
+    display: none;
+    position: fixed;
+}
+
 .login_btn{text-decoration:none; text-align:center;
     padding:3px 7px;
     border:solid 1px #222324;
@@ -72,9 +78,10 @@ body{
     background-image: -ms-linear-gradient(top, #252925 0% ,#70786f 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70786f', endColorstr='#70786f',GradientType=0 );
     background-image: linear-gradient(top, #252925 0% ,#70786f 100%);
-    -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #fff5f5;
-    -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #fff5f5;
-    box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #fff5f5;
+    /*noinspection CssRedundantUnit*/
+    -webkit-box-shadow:0 0 2px #bababa, inset 0 0 1px #fff5f5;
+    -moz-box-shadow: 0 0 2px #bababa,  inset 0 0 1px #fff5f5;
+    box-shadow:0 0 2px #bababa, inset 0 0 1px #fff5f5;
 
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition:  all 0.2s ease-in-out;
@@ -82,7 +89,7 @@ body{
     transition:  all 0.2s ease-in-out;}
 
 .login_btn:hover{
-   padding:3px 7px;
+   padding:5px 9px;
    border:solid 1px #000000;
    -webkit-border-radius:4px;
    -moz-border-radius:4px;
@@ -97,13 +104,13 @@ body{
    background-image: -ms-linear-gradient(top, #40473f 0% ,#70786f 100%);
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70786f', endColorstr='#70786f',GradientType=0 );
    background-image: linear-gradient(top, #40473f 0% ,#70786f 100%);
-   -webkit-box-shadow:0px 0px 2px #fff5f5, inset 0px 0px 1px #ffffff;
-   -moz-box-shadow: 0px 0px 2px #fff5f5,  inset 0px 0px 1px #ffffff;
-   box-shadow:0px 0px 2px #fff5f5, inset 0px 0px 1px #ffffff;
+   -webkit-box-shadow:0 0 2px #fff5f5, inset 0 0 1px #ffffff;
+   -moz-box-shadow: 0 0 2px #fff5f5,  inset 0 0 1px #ffffff;
+   box-shadow:0 0 2px #fff5f5, inset 0 0 1px #ffffff;
 }
 
 .login_btn:active{
-    padding:3px 7px;
+    padding:5px 9px;
     border:solid 1px #005072;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -118,7 +125,7 @@ body{
     background-image: -ms-linear-gradient(top, #40473f 0% ,#70786f 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70786f', endColorstr='#70786f',GradientType=0 );
     background-image: linear-gradient(top, #40473f 0% ,#70786f 100%);
-    -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;
-    box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow:0 0 2px #bababa, inset 0 0 1px #ffffff;
+    -moz-box-shadow: 0 0 2px #bababa,  inset 0 0 1px #ffffff;
+    box-shadow:0 0 2px #bababa, inset 0 0 1px #ffffff;
 }

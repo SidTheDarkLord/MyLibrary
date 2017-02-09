@@ -11,6 +11,16 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="a.xml" value="46247f51-fc87-4ffb-884a-05b574ad3af3" />
+          <unit-entry name="hibernate.cfg.xml" value="46247f51-fc87-4ffb-884a-05b574ad3af3" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -21,5 +31,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Payara" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="Payara - JSF" level="application_server_libraries" />
+    <orderEntry type="library" name="Hibernate 5.2.3-5.2.3" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.39-bin" level="application" />
   </component>
 </module>

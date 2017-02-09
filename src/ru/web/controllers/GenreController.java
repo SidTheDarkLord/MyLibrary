@@ -1,70 +1,54 @@
 package ru.web.controllers;
 
-import ru.web.beans.Genre;
-import ru.web.db.Database;
+import ru.web.db.DataHelper;
+import ru.web.hibernate.entity.Genre;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@ManagedBean(eager = true)
+@ManagedBean(eager = false)
 @ApplicationScoped
 public class GenreController implements Serializable {
 
-    private ArrayList<Genre> genreList;
-
-    public GenreController() {
-        fillGenresAll();
-    }
-
+    private List<SelectItem> selectItems = new ArrayList<>();
+    private Map<Long, Genre> genreMap;
+    private List<Genre> genreList;
     /*
-    метод, возвращающий список жанров,
-    заполненный информацией из базы данных
+        конструктор сразу заполняет список жанров из базы данных
      */
-    private void fillGenresAll() {
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        genreList = new ArrayList<>();
+    public GenreController() {
+        genreMap = new HashMap<>();
+        genreList = DataHelper.getInstance().getAllGenres();
 
-        try {
-            Database database = new Database();
-            conn = database.getConnection();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("select * from genre order by name");
-            while (rs.next()) {
-                Genre genre = new Genre();
-                genre.setId(rs.getLong("id"));
-                genre.setName(rs.getString("name"));
-                genreList.add(genre);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(rs != null) {
-                    rs.close();
-                }
-                if(stmt != null) {
-                    stmt.close();
-                }
-                if(conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        for (Genre genre : genreList) {
+            genreMap.put(genre.getId(), genre);
+            selectItems.add(new SelectItem(genre, genre.getName()));
         }
     }
 
-    public ArrayList<Genre> getGenreList() {
-            return genreList;
+    public List<SelectItem> getSelectItems() {
+        return selectItems;
     }
 
+    public List<Genre> getGenreList() {
+        return genreList;
+    }
+
+
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        return genreMap.get(Long.valueOf(value));
+    }
+
+
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        return ((Genre) value).getId().toString();
+    }
 }

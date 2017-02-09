@@ -247,10 +247,9 @@ a:hover, a:focus, a:active {
 }
 #loading_wrapper{
     width: 100%;
-    display: block;
+    display: none;
     text-align: center;
     position: fixed;
-    display: none;
 }
 #loading_wrapper p{
     background-color: #fde88e;

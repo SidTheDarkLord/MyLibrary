@@ -5,7 +5,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
 
 <h:head>
     <title>Facelet Title</title>
@@ -19,9 +21,13 @@
             <h:form>
                 <h:commandLink action="#{localeChanger.changeLocale('ru')}">
                     <h:graphicImage library="images" name="rus.png" title="#{msg.russian}"/>
+                    <f:ajax render=":lib_title :login_div" execute="@form" disabled="#{fn:contains(request.requestURL, 'books.xhtml')}"/>
+                    <f:ajax render="@all" execute="@form" disabled="#{not fn:contains(request.requestURL, 'books.xhtml')}"/>
                 </h:commandLink>
                 <h:commandLink action="#{localeChanger.changeLocale('en')}">
                     <h:graphicImage library="images" name="eng.png" title="#{msg.english}"/>
+                    <f:ajax render=":lib_title :login_div" execute="@form" disabled="#{fn:contains(request.requestURL, 'books.xhtml')}"/>
+                    <f:ajax render="@all" execute="@form" disabled="#{not fn:contains(request.requestURL, 'books.xhtml')}"/>
                 </h:commandLink>
             </h:form>
 

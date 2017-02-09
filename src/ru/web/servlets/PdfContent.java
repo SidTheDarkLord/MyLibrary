@@ -1,6 +1,7 @@
 package ru.web.servlets;
 
-import ru.web.controllers.BookListController;
+
+import ru.web.db.DataHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,14 +15,13 @@ import java.net.URLEncoder;
 @WebServlet(name = "PdfContent", urlPatterns = {"/PdfContent"})
 public class PdfContent extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/pdf");
         try(OutputStream out = response.getOutputStream()) {
-            int id = Integer.valueOf(request.getParameter("id"));
+            long id = Long.valueOf(request.getParameter("id"));
             boolean save = Boolean.valueOf(request.getParameter("save"));
             String filename = request.getParameter("filename");
-            BookListController bookListController = (BookListController) request.getSession(false).getAttribute("bookListController");
-            byte[] content = bookListController.getContent(id);
+            byte[] content = DataHelper.getInstance().getContent(id);
             response.setContentLength(content.length);
             if(save) {
                 response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(filename, "UTF-8") + ".pdf");

@@ -1,6 +1,7 @@
 package ru.web.servlets;
 
-import ru.web.controllers.BookListController;
+
+import ru.web.db.DataHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +15,11 @@ import java.io.OutputStream;
 @WebServlet(name = "ShowImage", urlPatterns = {"/ShowImage"})
 public class ShowImage extends HttpServlet {
 
-    public void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("image/jpeg");
         try(OutputStream out = response.getOutputStream()) {
-            int id = Integer.valueOf(request.getParameter("id"));
-            BookListController bookListController = (BookListController) request.getSession(false).getAttribute("bookListController");
-            byte[] image = bookListController.getImage(id);
+            long id = Long.valueOf(request.getParameter("id"));
+            byte[] image = DataHelper.getInstance().getImage(id);
             response.setContentLength(image.length);
             out.write(image);
         }
